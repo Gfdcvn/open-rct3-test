@@ -29,8 +29,10 @@ main {
   margin: 0 auto;
 }
 
-/* See */
-
+/* See https://loading.io/css */
+:root {
+  --throbber-size: 40px;
+}
 .throbber.ripple,
 .throbber.ripple div {
   box-sizing: border-box;
@@ -39,12 +41,12 @@ main {
   color: black;
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: var(--throbber-size);
+  height: var(--throbber-size);
 }
 .throbber.ripple div {
   position: absolute;
-  border: 4px solid currentColor;
+  border: calc(var(--throbber-size) / 10 / 2) solid currentColor;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -54,31 +56,31 @@ main {
 }
 @keyframes lds-ripple {
   0% {
-    top: 36px;
-    left: 36px;
-    width: 8px;
-    height: 8px;
+    top: calc(var(--throbber-size) * 0.45);
+    left: calc(var(--throbber-size) * 0.45);
+    width: calc(var(--throbber-size) / 10);
+    height: calc(var(--throbber-size) / 10);
     opacity: 0;
   }
-  4.9% {
-    top: 36px;
-    left: 36px;
-    width: 8px;
-    height: 8px;
+  4% {
+    top: calc(var(--throbber-size) * 0.45);
+    left: calc(var(--throbber-size) * 0.45);
+    width: calc(var(--throbber-size) / 10);
+    height: calc(var(--throbber-size) / 10);
     opacity: 0;
   }
   5% {
-    top: 36px;
-    left: 36px;
-    width: 8px;
-    height: 8px;
+    top: calc(var(--throbber-size) * 0.45);
+    left: calc(var(--throbber-size) * 0.45);
+    width: calc(var(--throbber-size) / 10);
+    height: calc(var(--throbber-size) / 10);
     opacity: 1;
   }
   100% {
     top: 0;
     left: 0;
-    width: 80px;
-    height: 80px;
+    width: var(--throbber-size);
+    height: var(--throbber-size);
     opacity: 0;
   }
 }
