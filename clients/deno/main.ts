@@ -21,24 +21,8 @@ if (import.meta.main) {
   view.init(await Deno.readTextFile(asset("content-script.js")));
   view.size = { width: 800, height: 450, hint: SizeHint.MIN };
   view.size = { width: 800, height: 600, hint: SizeHint.NONE };
-
   // Render splash page
-  const { html, render } = await import("@lit-labs/ssr");
-  const { unsafeHTML } = await import("lit/directives/unsafe-html");
-  const { collectResult } = await import("@lit-labs/ssr/render-result");
-  const { splash, styles } = await import("./src/splash.ts");
-  const document = await collectResult(render(
-    html`
-      <head>
-        <meta charset="utf-8">
-        <meta name="" >
-        ${unsafeHTML(`<style>${styles.toString()}</style>`)}
-      </head>
-      <body>${splash}</body>
-    `
-  ));
-
-  view.navigate(`data:text/html,${document}`);
+  view.navigate(`data:text/html,${await Deno.readTextFile(asset("index.html"))}`);
 
   // FIXME: Window flickers too much when launching on Windows 10
   view.run();

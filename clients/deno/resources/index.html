@@ -1,6 +1,10 @@
-import { css, html } from "lit";
-
-export const styles = css`html, body {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenRCT3</title>
+  <style>
+html, body {
   margin: 0;
   padding: 0;
 }
@@ -84,13 +88,16 @@ main {
     opacity: 0;
   }
 }
-`;
-
-export const splash = html`<header>
-  <img src="https://rct3.chancesnow.me/logo.png" alt="" />
-  <h1>OpenRCT3</h1>
-  <div class="throbber ripple" title="Loading…"><div></div><div></div></div>
-</header>
-<main>
-</main>
-`;
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://rct3.chancesnow.me/logo.png" alt="" />
+    <h1>OpenRCT3</h1>
+    <div class="throbber ripple" title="Loading…"><div></div><div></div></div>
+  </header>
+  <main>
+    <p>Loading…</p>
+  </main>
+</body>
+</html>
